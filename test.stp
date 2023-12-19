@@ -1,0 +1,11 @@
+#!/usr/bin/env stap
+
+# 追踪 ioread* 函数
+probe kernel.function("ioread*") {
+    printf("ioread called at %s\n", pp())
+}
+
+# 追踪 iowrite* 函数
+probe kernel.function("iowrite*") {
+    printf("iowrite called at %s\n", pp())
+}
